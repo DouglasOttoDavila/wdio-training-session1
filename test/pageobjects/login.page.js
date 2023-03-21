@@ -1,5 +1,3 @@
-
-
 const Page = require('./page');
 
 /**
@@ -18,7 +16,11 @@ class LoginPage extends Page {
     }
 
     get btnSubmit () {
-        return $('#login-button');
+        return $(`//button[@type="submit"]`);
+    }
+
+    get searchInput () {
+        return $(`//input[@type="search"]`);
     }
 
     /**
@@ -26,9 +28,14 @@ class LoginPage extends Page {
      * e.g. to login using username and password
      */
     async login () {
-        await this.inputUsername.setValue('standard_user');
-        await this.inputPassword.setValue('secret_sauce');
-        /* await this.btnSubmit.click(); */
+        await this.inputUsername.setValue('douglas.davila+automationtraining@objectedge.com');
+        await this.inputPassword.setValue('S3cur!ty');
+        await this.btnSubmit.click();
+    }
+
+    async search () {
+        await this.searchInput.setValue('ANYWORD');
+        await browser.keys('Enter');
     }
 
     /**
