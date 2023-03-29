@@ -1,43 +1,32 @@
-const Page = require('./page');
+const NewPage = require('./newpage');
 
 /**
  * sub page containing specific selectors and methods for a specific page
  */
 class Main extends NewPage {
-    /**
-     * define selectors using getter methods
-     */
-    get inputUsername () {
-        return $('//input[@id="user[email]"]');
+
+    get btnId () {
+        return $(`//a[@id="idExample"]`);
     }
 
-    get inputPassword () {
-        return $('//input[@id="user[password]"]');
+    get btnLinkText () {
+        return $(`//a[text()="Click me using this link text!"]`); 
     }
 
-    get btnSubmit () {
-        return $(`//button[@type="submit"]`);
+    get btnClassName () {
+        return $(`//button[@class="buttonClass"]`);
     }
 
-    get searchInput () {
-        return $(`//input[@type="search"]`);
+    get btnName () {
+        return $(`//button[@name="button1"]`);
     }
 
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
     async login () {
         await this.inputUsername.setValue('douglas.davila+automationtraining@objectedge.com');
         await this.inputPassword.setValue('S3cur!ty');
         await this.btnSubmit.click();
     }
-
-    async search () {
-        await this.searchInput.setValue('ANYWORD');
-        await browser.keys('Enter');
-    }
-
+    
     /**
      * overwrite specific options to adapt it to page object
      */
