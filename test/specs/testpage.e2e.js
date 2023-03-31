@@ -3,18 +3,7 @@ const Main = require('../pageobjects/main.page')
 describe('Multiple Test', () => {
     it('Clicking buttons', async () => {
         await Main.open(`simple-html-elements-for-automation`);
-        await Main.btnId.click();
-        browser.pause(3000);
-        browser.back();
-        await Main.btnLinkText.click();
-        browser.pause(3000);
-        browser.back();  
-        await Main.btnClassName.click();
-        browser.pause(3000);
-        browser.back();
-        await Main.btnName.click();
-        browser.pause(3000);
-        browser.back();
+        await Main.clickAllBtnOnTop();
         
         /* await Main.login();
         browser.pause(5000);

@@ -34,6 +34,21 @@ class Main extends Page {
         return super.open(parameter);
     }
 
+    async clickAllBtnOnTop() {
+        await this.btnId.click();
+        browser.pause(3000);
+        browser.back();
+        await this.btnLinkText.click();
+        browser.pause(3000);
+        browser.back();  
+        await this.btnClassName.click();
+        browser.pause(3000);
+        browser.back();
+        await this.btnName.click();
+        browser.pause(3000);
+        browser.back();
+    }
+
 
     /*async login () {
         await this.inputUsername.setValue('douglas.davila+automationtraining@objectedge.com');
