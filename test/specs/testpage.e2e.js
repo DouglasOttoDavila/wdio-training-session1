@@ -1,4 +1,4 @@
-const Main = require('../pageobjects/main.newpage')
+const Main = require('../pageobjects/main.page')
 
 describe('Multiple Test', () => {
     it('Clicking buttons', async () => {

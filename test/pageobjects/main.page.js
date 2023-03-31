@@ -1,9 +1,9 @@
-const NewPage = require('./newpage');
+const Page = require('./page');
 
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class Main extends NewPage {
+class Main extends Page {
 
     get btnId () {
         return $(`//a[@id="idExample"]`);
