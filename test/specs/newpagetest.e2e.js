@@ -22,6 +22,13 @@ describe('Multiple Test', () => {
         /* await expect(SecurePage.flashAlert).toBeExisting()
         await expect(SecurePage.flashAlert).toHaveTextContaining(
             'You logged into a secure area!') */
+        /*await LoginPage.open(`users/sign_in`);
+        await LoginPage.login();
+        browser.pause(5000);
+        await LoginPage.search();
+        /* await expect(SecurePage.flashAlert).toBeExisting()
+        await expect(SecurePage.flashAlert).toHaveTextContaining(
+            'You logged into a secure area!') */
     })
 })
 

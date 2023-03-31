@@ -33,6 +33,18 @@ class Main extends NewPage {
     open (parameter) {
         return super.open(parameter);
     }
+
+
+    /*async login () {
+        await this.inputUsername.setValue('douglas.davila+automationtraining@objectedge.com');
+        await this.inputPassword.setValue('S3cur!ty');
+        await this.btnSubmit.click();
+    }
+
+    async search () {
+        await this.searchInput.setValue('ANYWORD');
+        await browser.keys('Enter');
+    }*/
 }
 
 module.exports = new Main();
