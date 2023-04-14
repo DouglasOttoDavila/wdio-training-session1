@@ -21,12 +21,41 @@ class Main extends Page {
         return $(`//button[@name="button1"]`);
     }
 
-    async login () {
-        await this.inputUsername.setValue('douglas.davila+automationtraining@objectedge.com');
-        await this.inputPassword.setValue('S3cur!ty');
-        await this.btnSubmit.click();
+    get inputUsername () {
+        return $(`//input[@id="et_pb_contact_name_0"]`);
     }
+
+    get inputEmail () {
+        return $(`//input[@id="et_pb_contact_email_0"]`);
+    }
+
+    get btnEmailMe () {
+        return $(`//button[@name="et_builder_submit_button"]`);
+    }
+
+    get confMessage () {
+        return $('//div[@id="et_pb_contact_form_0"]/div[@class="et-pb-contact-message"]/p');
+    }
+
+    async emailMeFunction () {
+        await this.inputUsername.setValue('Douglas');
+        await this.inputEmail.setValue('douglas.davila@objectedge.com');
+        await browser.pause(5000);
+        await this.btnEmailMe.click();
+        await browser.pause(5000);
+        await expect(this.confMessage).toHaveText('Thanks for contacting us'); 
+        await expect(this.confMessage).toBeDisplayed(); 
     
+        if (this.confMessage.isDiplayed() == true) {
+            await expect(this.confMessage).toHaveText('Thanks for contacting us');    
+        }
+
+        //TO CHECK NEXT SESSION - OBJECT PROMISSE
+        /* let confirmationMessage = this.confMessage.getText();
+        console.log(`The confirmation message is: ${confirmationMessage}`); */
+
+    }
+
     /**
      * overwrite specific options to adapt it to page object
      */
@@ -48,18 +77,6 @@ class Main extends Page {
         browser.pause(3000);
         browser.back();
     }
-
-
-    /*async login () {
-        await this.inputUsername.setValue('douglas.davila+automationtraining@objectedge.com');
-        await this.inputPassword.setValue('S3cur!ty');
-        await this.btnSubmit.click();
-    }
-
-    async search () {
-        await this.searchInput.setValue('ANYWORD');
-        await browser.keys('Enter');
-    }*/
 }
 
 module.exports = new Main();
