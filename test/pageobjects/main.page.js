@@ -63,19 +63,24 @@ class Main extends Page {
         return super.open(parameter);
     }
 
-    async clickAllBtnOnTop() {
+    async clickAllBtnOnTop(baseUrl, btnSuccess, linkSuccess) {
+        //const baseUrl = "https://ultimateqa.com";  
         await this.btnId.click();
-        browser.pause(3000);
-        browser.back();
+        await expect(browser).toHaveUrl(`${baseUrl}${btnSuccess}`);
+        await browser.pause(3000);
+        await browser.back();
         await this.btnLinkText.click();
-        browser.pause(3000);
-        browser.back();  
+        await expect(browser).toHaveUrl(`${baseUrl}${linkSuccess}`);
+        await browser.pause(3000);
+        await browser.back();  
         await this.btnClassName.click();
-        browser.pause(3000);
-        browser.back();
+        await expect(browser).toHaveUrl(`${baseUrl}${btnSuccess}?`);
+        await browser.pause(3000);
+        await browser.back();
         await this.btnName.click();
-        browser.pause(3000);
-        browser.back();
+        await expect(browser).toHaveUrl(`${baseUrl}${btnSuccess}/?button1=`);
+        await browser.pause(3000);
+        await browser.back();
     }
 }
 

@@ -3,7 +3,7 @@ const Main = require('../pageobjects/main.page')
 describe('Multiple Test', () => {
     it('Performing actions on main page', async () => {
         await Main.open(`simple-html-elements-for-automation`);
-        await Main.clickAllBtnOnTop();
+        await Main.clickAllBtnOnTop("https://ultimateqa.com","/button-success", "/link-success/"); //Those are the parameters (values) for the function
         await Main.emailMeFunction();
     
         /* await Main.login();
