@@ -37,6 +37,48 @@ class Main extends Page {
         return $('//div[@id="et_pb_contact_form_0"]/div[@class="et-pb-contact-message"]/p');
     }
 
+    get radioMaleSelector(){
+        return $('//input[@value="male"]');
+    }
+
+    get radioFemaleSelector(){
+        return $('//input[@value="female"]');
+    }
+
+    get checkBoxCar() {
+        return $('//input[@value="Car"]');
+    }
+
+    get checkBoxBike() {
+        return $('//input[@value="Bike"]');
+    }
+
+    get dropdownSelect() {
+        return $('//select');
+    }
+
+    async selectFromDropdown() {
+        const log1 = await this.dropdownSelect.getValue();
+        console.log(`LOG MESSAGE 1: Dropdown Value is ${log1}`);
+        await this.dropdownSelect.selectByAttribute('value', 'opel');
+        const log2 = await this.dropdownSelect.getValue();
+        console.log(`LOG MESSAGE 2: Dropdown Value is ${log2}`);
+    }
+
+    async clickCheckboxes() {
+        await this.checkBoxCar.click();
+        await this.checkBoxBike.click();
+        await expect(this.checkBoxCar).toBeSelected();
+        await expect(this.checkBoxBike).toBeSelected();
+        await browser.pause(5000);
+    }
+
+    async clickRadioBtn(){
+        await this.radioMaleSelector.click();
+        await expect(this.radioMaleSelector).toBeSelected();
+        await browser.pause(5000);
+    }
+
     async emailMeFunction () {
         await this.inputUsername.setValue('Douglas');
         await this.inputEmail.setValue('douglas.davila@objectedge.com');
