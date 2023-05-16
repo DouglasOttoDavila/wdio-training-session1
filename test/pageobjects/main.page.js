@@ -60,11 +60,13 @@ class Main extends Page {
 
     // CREATE YOUR FUNCTIONS HERE ↓ //
     async selectFromDropdown() {
-        const log1 = await this.dropdownSelect.getValue(); //Creates a variable to store the value of the dropdown, BEFORE changing it
-        console.log(`LOG MESSAGE 1: Dropdown Value is ${log1}`); //Adds a console message printing the DEFAULT value of the dropdown ("Volvo")
+        console.log("|LOG| Started selecting Dropdown!");
+        var log1 = await this.dropdownSelect.getValue(); //Creates a variable to store the value of the dropdown, BEFORE changing it
+        console.log(`LOG MESSAGE 1: Dropdown Value is ` + log1); //Adds a console message printing the DEFAULT value of the dropdown ("Volvo")
         await this.dropdownSelect.selectByAttribute('value', 'opel'); //Selects a new value from the dropdown, considering the attribute "value" and the attribute's value "opel"
-        const log2 = await this.dropdownSelect.getValue(); //Creates a variable to store the value of the dropdown, AFTER it was changed
-        console.log(`LOG MESSAGE 2: Dropdown Value is ${log2}`); //Adds a console message printing the CURRENT value of the dropdown ("Opel")
+        log1 = await this.dropdownSelect.getValue(); //Creates a variable to store the value of the dropdown, AFTER it was changed
+        console.log(`LOG MESSAGE 2: Dropdown Value is ${log1}`); //Adds a console message printing the CURRENT value of the dropdown ("Opel")
+        console.log("|LOG| Dropdown has been selected!");
     }
 
     async clickCheckboxes() {
