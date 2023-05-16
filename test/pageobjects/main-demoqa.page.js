@@ -25,8 +25,8 @@ class Main extends Page {
     /**
      * overwrite specific options to adapt it to page object
      */
-    open (parameter) {
-        return super.open(parameter);
+    open (parameter, spec) {
+        return super.open(parameter, spec);
     }
 }
 

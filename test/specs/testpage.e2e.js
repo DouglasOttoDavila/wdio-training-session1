@@ -2,7 +2,7 @@ const Main = require('../pageobjects/main.page')
 
 describe('Multiple Test', () => {
     it('Performing actions on main page', async () => {
-        await Main.open(`simple-html-elements-for-automation`);
+        await Main.open('simple-html-elements-for-automation', 'ultimateqa');
         console.log("|LOG| The title of the page is: " + await browser.getTitle());
         console.log("|LOG| The page has successfuly loaded.");
         //await Main.clickAllBtnOnTop("https://ultimateqa.com","/button-success", "/link-success/"); //Those are the parameters (values) for the function
