@@ -4,7 +4,8 @@ describe('Demo QA', () => {
     it('Demo QA - Forms', async () => {
         await Main.open('automation-practice-form','demoqa');
 
-        await Main.fillStudentForm('Doug', 
+        await Main.fillStudentForm(
+        'Doug', 
         'Davila', 
         'douglas.davila@objectedge.com', 
         '5551981270800', 
@@ -12,7 +13,7 @@ describe('Demo QA', () => {
         '1990', 
         '4', 
         'Male',
-        ['English','Hindi'],
+        ['English','Hindi', 'Chemistry', 'Maths'],
         'test/images/photo.jpg',
         'Col. Vincent, 625',
         'NCR',

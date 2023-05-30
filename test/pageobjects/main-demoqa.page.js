@@ -22,7 +22,7 @@ class Main extends Page {
     }
 
     get formBirthdayField () {
-        return $(`#dateOfBirthInput`);
+        return $(`#dateOfBirthInput`); //testing
     }
 
     get formBirthdayMonth () {
@@ -78,7 +78,9 @@ class Main extends Page {
         await this.formLname.setValue(lastname);
         await this.formEmail.setValue(email);
         await this.formMobNumber.setValue(number);
+        
         await this.setBirthday(month, year, day);
+        
         await this.setGender(gender);
         await this.formSubjectsField.click();
         await this.setSubjects(subjects);
@@ -87,6 +89,7 @@ class Main extends Page {
         await this.setCity(city);
         await this.formCurrentAddress.setValue(address);
         await this.submitForm.click();
+
     }
 
     async uploadFile(path) {
@@ -121,14 +124,28 @@ class Main extends Page {
         await genderSelect.click();
     }
 
-    async setSubjects (subjects) {
+    async setSubjects (subjects) { // subjects.length = 4
         
-        for (let i = 0; i < subjects.length; i++) {
-            await this.formSubjectsInput.setValue(subjects[i]);
+        for (let index = 0; index <= subjects.length; index++) {
+            await this.formSubjectsInput.setValue(subjects[index]);
             await browser.pause(1000);
             await browser.keys('Enter');
-            
         }
+
+        // i = 0 / 0 < 4 / i++ 
+        // await this.formSubjectsInput.setValue(subjects[0]); 
+
+        // i = 1 / 1 < 4 / i++
+        // await this.formSubjectsInput.setValue(subjects[1]);
+
+        // i = 2 / 2 < 4 / i++
+        // await this.formSubjectsInput.setValue(subjects[2]);
+
+        // i = 3 / 3 < 4 / i++
+        // await this.formSubjectsInput.setValue(subjects[3]);
+
+        // i = 4 / 4 < 4 / i++
+        
         
     }
 
